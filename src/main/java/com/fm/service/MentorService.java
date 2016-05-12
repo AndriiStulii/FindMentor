@@ -1,5 +1,6 @@
 package com.fm.service;
 
+import com.fm.model.Connection;
 import com.fm.model.Mentor;
 import com.fm.model.Status;
 import com.fm.repo.MentorsRepository;
@@ -22,24 +23,16 @@ public class MentorService implements UserService {
         return repository.findAll();
     }
 
-    public Iterable<Mentor> bookMentor(int id){
-        Mentor currentMentor = repository.findOne(id);
-        if (currentMentor.getStatus().equals(Status.FREE)){
-            currentMentor.setStatus(Status.BOOKED);
-            repository.save(currentMentor);
-        }
-        return selectMentorsByParams(
-                DEFAULT_LANGUAGE, Integer.valueOf(DEFAULT_EXPERIENCE), DEFAULT_COMPANY, Status.BOOKED);
+    public void bookMentor(int idMentor, int idDisciple){
+        MENTORS_AND_DISCIPLES_CONNECTIONS.add(new Connection(idDisciple, idMentor, false));
     }
 
-    public Iterable<Mentor> freeMentor(int id){
-        Mentor currentMentor = repository.findOne(id);
-        if (currentMentor.getStatus().equals(Status.BOOKED)){
-            currentMentor.setStatus(Status.FREE);
-            repository.save(currentMentor);
+    public void freeMentor(int idMentor, int idDisciple){
+        Connection connectionToRemove = Connection.findConnectionWithIds(idDisciple, idMentor);
+        if (connectionToRemove != null){
+            MENTORS_AND_DISCIPLES_CONNECTIONS.remove(connectionToRemove);
         }
-        return selectMentorsByParams(
-                DEFAULT_LANGUAGE, Integer.valueOf(DEFAULT_EXPERIENCE), DEFAULT_COMPANY, Status.FREE);
+
     }
 
     public Iterable<Mentor> selectMentorsByParams(String language, int experience, String company, Status status){

@@ -23,14 +23,18 @@ public class MentorController {
         return mentorService.selectAllMentors();
     }
 
-    @RequestMapping(path = "/mentors/{id}/book", method = RequestMethod.PATCH)
-    public Iterable<Mentor> bookMentor(@PathVariable int id){
-        return mentorService.bookMentor(id);
+    @RequestMapping(path = "/mentors/{id}/book", method = RequestMethod.POST)
+    public String bookMentor(@PathVariable int id,
+                             @RequestParam (required = true) int dId) {
+        mentorService.bookMentor(id, dId);
+        return "Booking request was send";
     }
 
-    @RequestMapping(path = "/mentors/{id}/free", method = RequestMethod.PATCH)
-    public Iterable<Mentor> freeMentor(@PathVariable int id){
-        return mentorService.freeMentor(id);
+    @RequestMapping(path = "/mentors/{id}/free", method = RequestMethod.POST)
+    public String freeMentor(@PathVariable int id,
+                             @RequestParam (required = true) int dId){
+        mentorService.freeMentor(id, dId);
+        return "Booking request was removed";
     }
 
     @RequestMapping(path = "/mentor", method = RequestMethod.GET)
