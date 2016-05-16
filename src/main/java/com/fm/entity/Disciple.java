@@ -1,4 +1,4 @@
-package com.fm.model;
+package com.fm.entity;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by andrewstulii on 12.03.16.
  */
 @Entity
-public class Disciple implements UserModel {
+public class Disciple {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

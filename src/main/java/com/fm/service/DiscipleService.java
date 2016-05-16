@@ -1,9 +1,9 @@
 package com.fm.service;
 
 import com.fm.model.Connection;
-import com.fm.model.Disciple;
-import com.fm.model.Mentor;
-import com.fm.model.Status;
+import com.fm.entity.Disciple;
+import com.fm.entity.Mentor;
+import com.fm.entity.Status;
 import com.fm.repo.DisciplesRepository;
 import com.fm.repo.MentorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

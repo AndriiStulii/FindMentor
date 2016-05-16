@@ -1,7 +1,7 @@
 package com.fm.repo;
 
-import com.fm.model.Mentor;
-import com.fm.model.Status;
+import com.fm.entity.Mentor;
+import com.fm.entity.Status;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Component;
 

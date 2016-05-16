@@ -1,7 +1,7 @@
 package com.fm.controller;
 
-import com.fm.model.Mentor;
-import com.fm.model.Status;
+import com.fm.entity.Mentor;
+import com.fm.entity.Status;
 import com.fm.service.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
 package com.fm.repo;
 
-import com.fm.model.Disciple;
+import com.fm.entity.Disciple;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

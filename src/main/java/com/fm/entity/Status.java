@@ -1,4 +1,4 @@
-package com.fm.model;
+package com.fm.entity;
 
 /**
  * Created by andrewstulii on 02.03.16.

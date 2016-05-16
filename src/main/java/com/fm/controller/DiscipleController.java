@@ -1,6 +1,6 @@
 package com.fm.controller;
 
-import com.fm.model.Disciple;
+import com.fm.entity.Disciple;
 import com.fm.service.DiscipleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

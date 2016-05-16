@@ -1,39 +1,31 @@
 package com.fm.model;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fm.entity.Status;
 
 /**
- * Created by andrewstulii on 02.03.16.
+ * Created by andrewstulii on 16.05.16.
  */
-@Entity
-public class Mentor implements UserModel {
+public class MentorModel extends UserModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @Column()
     private String name;
-
-    @Column
     private String language;
-
-    @Column
     private int experience;
-
-    @Column
     private String company;
-
-    @Column()
-    @Enumerated(EnumType.STRING)
     private Status status;
 
-
-    public Mentor() {
-    }
-
-    public int getId() {
-        return id;
+    @JsonCreator
+    public MentorModel(@JsonProperty("name")String name,
+                       @JsonProperty("language")String language,
+                       @JsonProperty("experience")int experience,
+                       @JsonProperty("company")String company,
+                       @JsonProperty("status")Status status) {
+        this.name = name;
+        this.language = language;
+        this.experience = experience;
+        this.company = company;
+        this.status = status;
     }
 
     public String getName() {
