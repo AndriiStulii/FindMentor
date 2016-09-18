@@ -2,6 +2,7 @@ package com.fm.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fm.entity.Disciple;
 import com.fm.entity.Mentor;
 
 
@@ -27,6 +28,14 @@ public class DiscipleModel extends UserModel {
         this.mentor = mentor;
         this.age = age;
         this.university = university;
+    }
+
+    public DiscipleModel(Disciple disciple) {
+        this.name = disciple.getName();
+        this.language = disciple.getLanguage();
+        this.mentor = disciple.getMentor();
+        this.age = disciple.getAge();
+        this.university = disciple.getUniversity();
     }
 
     public String getName() {

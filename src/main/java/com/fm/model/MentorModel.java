@@ -2,6 +2,7 @@ package com.fm.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fm.entity.Mentor;
 import com.fm.entity.Status;
 
 /**
@@ -26,6 +27,14 @@ public class MentorModel extends UserModel {
         this.experience = experience;
         this.company = company;
         this.status = status;
+    }
+
+    public MentorModel(Mentor mentor) {
+        this.name = mentor.getName();
+        this.language = mentor.getLanguage();
+        this.experience = mentor.getExperience();
+        this.company = mentor.getCompany();
+        this.status = mentor.getStatus();
     }
 
     public String getName() {
